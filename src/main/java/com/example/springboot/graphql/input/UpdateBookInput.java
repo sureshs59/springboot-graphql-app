@@ -1,0 +1,20 @@
+package com.example.springboot.graphql.input;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * Update Book Input
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class UpdateBookInput {
+    private String title;
+    private String isbn;
+    private Integer pageCount;
+    private Integer publishedYear;
+    private String description;
+    private Double price;
+}

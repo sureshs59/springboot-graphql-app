@@ -1,0 +1,117 @@
+type Query {
+    # Book queries
+    books: [Book!]!
+    bookById(id: Long!): Book
+    booksByAuthor(authorId: Long!): [Book!]!
+    searchBooks(title: String!): [Book!]!
+
+    # Author queries
+    authors: [Author!]!
+    authorById(id: Long!): Author
+    authorByName(name: String!): Author
+
+    # Publisher queries
+    publishers: [Publisher!]!
+    publisherById(id: Long!): Publisher
+}
+
+type Mutation {
+    # Book mutations
+    createBook(input: CreateBookInput!): Book!
+    updateBook(id: Long!, input: UpdateBookInput!): Book!
+    deleteBook(id: Long!): Boolean!
+
+    # Author mutations
+    createAuthor(input: CreateAuthorInput!): Author!
+    updateAuthor(id: Long!, input: UpdateAuthorInput!): Author!
+    deleteAuthor(id: Long!): Boolean!
+
+    # Publisher mutations
+    createPublisher(input: CreatePublisherInput!): Publisher!
+    updatePublisher(id: Long!, input: UpdatePublisherInput!): Publisher!
+    deletePublisher(id: Long!): Boolean!
+}
+
+type Book {
+    id: Long!
+    title: String!
+    isbn: String!
+    pageCount: Int!
+    publishedYear: Int!
+    description: String
+    price: Float!
+    author: Author!
+    publisher: Publisher!
+    createdAt: String!
+    updatedAt: String!
+}
+
+type Author {
+    id: Long!
+    name: String!
+    email: String!
+    country: String!
+    biography: String
+    books: [Book!]!
+    createdAt: String!
+    updatedAt: String!
+}
+
+type Publisher {
+    id: Long!
+    name: String!
+    country: String!
+    email: String!
+    phone: String
+    books: [Book!]!
+    createdAt: String!
+    updatedAt: String!
+}
+
+input CreateBookInput {
+    title: String!
+    isbn: String!
+    pageCount: Int!
+    publishedYear: Int!
+    description: String
+    price: Float!
+    authorId: Long!
+    publisherId: Long!
+}
+
+input UpdateBookInput {
+    title: String
+    isbn: String
+    pageCount: Int
+    publishedYear: Int
+    description: String
+    price: Float
+}
+
+input CreateAuthorInput {
+    name: String!
+    email: String!
+    country: String!
+    biography: String
+}
+
+input UpdateAuthorInput {
+    name: String
+    email: String
+    country: String
+    biography: String
+}
+
+input CreatePublisherInput {
+    name: String!
+    country: String!
+    email: String!
+    phone: String
+}
+
+input UpdatePublisherInput {
+    name: String
+    country: String
+    email: String
+    phone: String
+}
