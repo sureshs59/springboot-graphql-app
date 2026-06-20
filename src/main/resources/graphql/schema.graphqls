@@ -1,3 +1,7 @@
+# Scalar Types
+scalar Long
+scalar DateTime
+
 type Query {
     # Book queries
     books: [Book!]!
