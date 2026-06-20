@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-com.example.springboot.graphql.entity.Author;
-import com.example.springboot.graphql.entity.Publisher;
 
 /**
  * Book Entity
